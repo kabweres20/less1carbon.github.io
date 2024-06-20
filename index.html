@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Basic styles for demonstration */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+    .dropdown-container {
+      position: relative;
+      padding-right: 20px; /* Adjust as needed */
+    }
+  </style>
+  <title>Less Carbon</title>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <div class="nav__logo">LESS Carbon</div>
+      <ul class="nav__links">
+        <li class="link"><a href="#"><i class="ri-home-4-line"></i> Home</a></li>
+       <li class="link dropdown-container" onclick="toggleDropdown('register')">
+  <a href="#"><i class="ri-pencil-ruler-line"></i>&nbsp; Register</a>
+  <div id="dropdown-register" class="dropdown-content">
+    <a href="#" data-toggle="modal" data-target="#lessCarbonRegisterModal">As Less Carbon</a>
+    <a href="#" data-toggle="modal" data-target="#gasVendorRegisterModal">As Gas Vendor</a>
+    <a href="#" data-toggle="modal" data-target="#customerRegisterModal">As Customer</a>
+  </div>
+</li>
+
+        <li class="link dropdown-container" onclick="toggleDropdown('login')">
+          <a href="#"><i class="ri-login-box-line"></i>&nbsp; Login</a>
+          <div id="dropdown-login" class="dropdown-content">
+            <a href="#" data-toggle="modal" data-target="#lessCarbonLoginModal">As Less Carbon</a>
+            <a href="#" data-toggle="modal" data-target="#gasVendorLoginModal">As Gas Vendor</a>
+            <a href="#" data-toggle="modal" data-target="#customerLoginModal">As Customer</a>
+          </div>
+        </li>
+        <li class="link"><a href="#" data-toggle="modal" data-target="#adminLoginModal"><i class="ri-admin-line"></i> Admin</a></li>
+      </ul>
+      <button class="btn">About Us</button>
+    </nav>
+
+    <header class="header">
+      <div class="content">
+        <h1 style="color: #ff4d4d;"><span>Reliable</span><br />Gas Loaning Solutions</h1>
+        <p style="color: #6b7280;">
+          In today's dynamic environment, reliable access to gas resources is crucial. Whether for operational continuity or emergency situations, having dependable gas loaning solutions ensures individuals can meet their energy needs promptly and sustainably.
+        </p>
+        <button class="btn">Get Services</button>
+      </div>
+      <div class="image">
+        <span class="image__bg"></span>
+        <img src="assets/h.jpg" alt="header image" />
+        <div class="image__content image__content__1">
+          <span><i class="ri-user-3-line"></i></span>
+          <div class="details">
+            <h4>130+</h4>
+            <p>Happy Customers</p>
+          </div>
+        </div>
+        <div class="image__content image__content__2">
+          <ul>
+            <li style="color: #6b7280;">
+              <span><i class="ri-check-line"></i></span>
+              Quick and Easy Gas Ordering
+            </li>
+            <li style="color: #6b7280;">
+              <span><i class="ri-check-line"></i></span>
+              Reliable and Eco-Friendly Gas Delivery
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+  </div>
+
+
+<!-- Less Carbon Register Modal -->
+<div class="modal fade" id="lessCarbonRegisterModal" tabindex="-1" aria-labelledby="lessCarbonRegisterModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm"> <!-- Added 'modal-sm' class to reduce width -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="lessCarbonRegisterModalLabel">Less Carbon Registration</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="lessCarbonFirstName">First Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="lessCarbonFirstName" placeholder="Enter first name">
+          </div>
+          <div class="form-group">
+            <label for="lessCarbonLastName">Last Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="lessCarbonLastName" placeholder="Enter last name">
+          </div>
+          <div class="form-group">
+            <label for="lessCarbonPhoneNumber">Phone Number <span class="text-danger">*</span></label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><img src="assets\k.png" alt="Kenyan flag" style="width: 20px;"> +254</span>
+              </div>
+              <input type="text" class="form-control" id="lessCarbonPhoneNumber" placeholder="Enter phone number">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Gender <span class="text-danger">*</span></label>
+            <div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="lessCarbonGender" id="lessCarbonGenderMale" value="male">
+                <label class="form-check-label" for="lessCarbonGenderMale">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="lessCarbonGender" id="lessCarbonGenderFemale" value="female">
+                <label class="form-check-label" for="lessCarbonGenderFemale">Female</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="lessCarbonGender" id="lessCarbonGenderOther" value="other">
+                <label class="form-check-label" for="lessCarbonGenderOther">Other</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lessCarbonUsername">Username <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="lessCarbonUsername" placeholder="Enter username">
+          </div>
+          <div class="form-group">
+            <label for="lessCarbonEmail">Email <span class="text-danger">*</span></label>
+            <input type="email" class="form-control" id="lessCarbonEmail" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="lessCarbonPassword">Password <span class="text-danger">*</span></label>
+            <input type="password" class="form-control" id="lessCarbonPassword" placeholder="Enter password">
+          </div>
+          <div class="form-group">
+            <label for="lessCarbonConfirmPassword">Confirm Password <span class="text-danger">*</span></label>
+            <input type="password" class="form-control" id="lessCarbonConfirmPassword" placeholder="Confirm password">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block"><i class="ri-user-add-line"></i> Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Gas Vendor Register Modal -->
+<div class="modal fade" id="gasVendorRegisterModal" tabindex="-1" aria-labelledby="gasVendorRegisterModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm"> <!-- Added 'modal-sm' class to reduce width -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="gasVendorRegisterModalLabel">Gas Vendor Registration</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="gasVendorFirstName">First Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="gasVendorFirstName" placeholder="Enter first name">
+          </div>
+          <div class="form-group">
+            <label for="gasVendorLastName">Last Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="gasVendorLastName" placeholder="Enter last name">
+          </div>
+          <div class="form-group">
+            <label for="gasVendorPhoneNumber">Phone Number <span class="text-danger">*</span></label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><img src="assets\k.png" alt="Kenyan flag" style="width: 20px;"> +254</span>
+              </div>
+              <input type="text" class="form-control" id="gasVendorPhoneNumber" placeholder="Enter phone number">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="gasVendorLessCarbon">Select Less Carbon <span class="text-danger">*</span></label>
+            <select class="form-control" id="gasVendorLessCarbon">
+              <option value="" disabled selected>Select Less Carbon</option>
+              <option value="lessCarbon1">Less Carbon 1</option>
+              <option value="lessCarbon2">Less Carbon 2</option>
+              <!-- Add more options as necessary -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Gender <span class="text-danger">*</span></label>
+            <div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gasVendorGender" id="gasVendorGenderMale" value="male">
+                <label class="form-check-label" for="gasVendorGenderMale">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gasVendorGender" id="gasVendorGenderFemale" value="female">
+                <label class="form-check-label" for="gasVendorGenderFemale">Female</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gasVendorGender" id="gasVendorGenderOther" value="other">
+                <label class="form-check-label" for="gasVendorGenderOther">Other</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="gasVendorUsername">Username <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="gasVendorUsername" placeholder="Enter username">
+          </div>
+          <div class="form-group">
+            <label for="gasVendorEmail">Email <span class="text-danger">*</span></label>
+            <input type="email" class="form-control" id="gasVendorEmail" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="gasVendorPassword">Password <span class="text-danger">*</span></label>
+            <input type="password" class="form-control" id="gasVendorPassword" placeholder="Enter password">
+          </div>
+          <div class="form-group">
+            <label for="gasVendorConfirmPassword">Confirm Password <span class="text-danger">*</span></label>
+            <input type="password" class="form-control" id="gasVendorConfirmPassword" placeholder="Confirm password">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block"><i class="ri-user-add-line"></i> Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Customer Register Modal -->
+<div class="modal fade" id="customerRegisterModal" tabindex="-1" aria-labelledby="customerRegisterModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="customerRegisterModalLabel">Customer Registration</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="customerFirstName">First Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="customerFirstName" placeholder="Enter first name">
+              </div>
+              <div class="form-group">
+                <label for="customerLastName">Last Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="customerLastName" placeholder="Enter last name">
+              </div>
+              <div class="form-group">
+                <label for="customerPhoneNumber">Phone Number <span class="text-danger">*</span></label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><img src="assets\k.png" alt="Kenyan flag" style="width: 20px;"> +254</span>
+                  </div>
+                  <input type="text" class="form-control" id="customerPhoneNumber" placeholder="Enter phone number">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="customerVendor">Select Vendor <span class="text-danger">*</span></label>
+                <select class="form-control" id="customerVendor">
+                  <option value="" disabled selected>Select Vendor</option>
+                  <option value="vendor1">Vendor 1</option>
+                  <option value="vendor2">Vendor 2</option>
+                  <!-- Add more options as necessary -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Register As <span class="text-danger">*</span></label>
+                <div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="registerAs" id="registerAsIndividual" value="individual" onclick="toggleGroupField(false)">
+                    <label class="form-check-label" for="registerAsIndividual">Individual</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="registerAs" id="registerAsGroup" value="group" onclick="toggleGroupField(true)">
+                    <label class="form-check-label" for="registerAsGroup">Group</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" id="groupField" style="display: none;">
+                <label for="customerGroup">Select Group <span class="text-danger">*</span></label>
+                <select class="form-control" id="customerGroup">
+                  <option value="" disabled selected>Select Group</option>
+                  <option value="group1">Group 1</option>
+                  <option value="group2">Group 2</option>
+                  <!-- Add more options as necessary -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Gender <span class="text-danger">*</span></label>
+                <div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="customerGender" id="customerGenderMale" value="male">
+                    <label class="form-check-label" for="customerGenderMale">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="customerGender" id="customerGenderFemale" value="female">
+                    <label class="form-check-label" for="customerGenderFemale">Female</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="customerGender" id="customerGenderOther" value="other">
+                    <label class="form-check-label" for="customerGenderOther">Other</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="customerLocation">Location <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="customerLocation" placeholder="Enter location">
+              </div>
+              <div class="form-group">
+                <label for="customerDOB">Date of Birth <span class="text-danger">*</span></label>
+                <input type="date" class="form-control" id="customerDOB">
+              </div>
+              <div class="form-group">
+                <label for="customerIDNumber">ID Number <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="customerIDNumber" placeholder="Enter ID number">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="nextOfKinName">Next of Kin Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="nextOfKinName" placeholder="Enter next of kin name">
+              </div>
+              <div class="form-group">
+                <label for="nextOfKinPhoneNumber">Next of Kin Phone Number <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="nextOfKinPhoneNumber" placeholder="Enter next of kin phone number">
+              </div>
+              <div class="form-group">
+                <label for="nextOfKinEmail">Next of Kin Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="nextOfKinEmail" placeholder="Enter next of kin email">
+              </div>
+              <div class="form-group">
+                <label for="nextOfKinRelation">Relation <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="nextOfKinRelation" placeholder="Enter relation">
+              </div>
+              <div class="form-group">
+                <label for="customerUsername">Username <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="customerUsername" placeholder="Enter username">
+              </div>
+              <div class="form-group">
+                <label for="customerEmail">Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="customerEmail" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label for="customerPassword">Password <span class="text-danger">*</span></label>
+                <input type="password" class="form-control" id="customerPassword" placeholder="Enter password">
+              </div>
+              <div class="form-group">
+                <label for="customerConfirmPassword">Confirm Password <span class="text-danger">*</span></label>
+                <input type="password" class="form-control" id="customerConfirmPassword" placeholder="Confirm password">
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block"><i class="ri-user-add-line"></i> Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleGroupField(show) {
+  var groupField = document.getElementById('groupField');
+  if (show) {
+    groupField.style.display = 'block';
+  } else {
+    groupField.style.display = 'none';
+  }
+}
+</script>
+
+
+
+
+<!-- Less Carbon Login Modal -->
+<div class="modal fade" id="lessCarbonLoginModal" tabindex="-1" aria-labelledby="lessCarbonLoginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="lessCarbonLoginModalLabel">Less Carbon Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="lessCarbonUsername">Username</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ri-user-line"></i></span>
+              </div>
+              <input type="text" class="form-control" id="lessCarbonUsername" placeholder="Enter username">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lessCarbonPassword">Password</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ri-lock-line"></i></span>
+              </div>
+              <input type="password" class="form-control" id="lessCarbonPassword" placeholder="Enter password">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block"><i class="ri-login-box-line"></i> Login</button>
+          <div class="form-group text-center mt-3">
+            <p class="mb-0"><a href="#">Reset Password</a> | <a href="#">Create account</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Gas Vendor Login Modal -->
+<div class="modal fade" id="gasVendorLoginModal" tabindex="-1" aria-labelledby="gasVendorLoginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="gasVendorLoginModalLabel">Gas Vendor Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="gasVendorUsername">Username</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ri-user-line"></i></span>
+              </div>
+              <input type="text" class="form-control" id="gasVendorUsername" placeholder="Enter username">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="gasVendorPassword">Password</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ri-lock-line"></i></span>
+              </div>
+              <input type="password" class="form-control" id="gasVendorPassword" placeholder="Enter password">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block"><i class="ri-login-box-line"></i> Login</button>
+          <div class="form-group text-center mt-3">
+            <p class="mb-0"><a href="#">Reset Password</a> | <a href="#">Create account</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Customer Login Modal -->
+<div class="modal fade" id="customerLoginModal" tabindex="-1" aria-labelledby="customerLoginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="customerLoginModalLabel">Customer Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="customerUsername">Username</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ri-user-line"></i></span>
+              </div>
+              <input type="text" class="form-control" id="customerUsername" placeholder="Enter username">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="customerPassword">Password</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ri-lock-line"></i></span>
+              </div>
+              <input type="password" class="form-control" id="customerPassword" placeholder="Enter password">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block"><i class="ri-login-box-line"></i> Login</button>
+          <div class="form-group text-center mt-3">
+            <p class="mb-0"><a href="#">Reset Password</a> | <a href="#">Create account</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Admin Login Modal -->
+<div class="modal fade" id="adminLoginModal" tabindex="-1" aria-labelledby="adminLoginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="adminLoginModalLabel">Admin Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="adminUsername">Username</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ri-user-line"></i></span>
+              </div>
+              <input type="text" class="form-control" id="adminUsername" placeholder="Enter username">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="adminPassword">Password</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ri-lock-line"></i></span>
+              </div>
+              <input type="password" class="form-control" id="adminPassword" placeholder="Enter password">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block"><i class="ri-login-box-line"></i> Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    function toggleDropdown(id) {
+      var dropdowns = document.querySelectorAll('.dropdown-content');
+      dropdowns.forEach(function(dropdown) {
+        if (dropdown.id === 'dropdown-' + id) {
+          dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+        } else {
+          dropdown.style.display = 'none';
+        }
+      });
+    }
+
+    // Close dropdowns if clicked outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.dropdown-container')) {
+        var dropdowns = document.querySelectorAll('.dropdown-content');
+        dropdowns.forEach(function(dropdown) {
+          dropdown.style.display = 'none';
+        });
+      }
+    });
+  </script>
+</body>
+</html>
